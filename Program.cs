@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Register MediatR services manually
-builder.Services.AddMediatR(service => service.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 // Configure DbContext to use InMemoryDatabase
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -15,7 +15,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // Register FluentValidation and validators
 builder.Services.AddControllers()
-    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateProductCommandValidator>());
+    .AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<CreateProductCommandValidator>());
 
 var app = builder.Build();
 
