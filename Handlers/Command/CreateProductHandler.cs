@@ -3,7 +3,7 @@ using CQRSWithMediatR.Data;
 using CQRSWithMediatR.Models;
 using MediatR;
 
-namespace CQRSWithMediatR.Handlers;
+namespace CQRSWithMediatR.Handlers.Command;
 
 public class CreateProductHandler : IRequestHandler<CreateProductCommand, int>
 {
